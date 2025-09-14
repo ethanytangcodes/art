@@ -15,7 +15,7 @@
     "image": "projects/1on1soccer/logo.jpg"
   },
   {
-    "title": "1v1.lol",
+    "title": "1v1.lol(bugged)",
     "link": "projects/1v1lol/index.html",
     "image": "projects/1v1lol/splash.png"
   },
@@ -443,11 +443,6 @@
     "title": "Edge not found",
     "link": "projects/edgenotfound/index.html",
     "image": "projects/edgenotfound/edge.png"
-  },
-  {
-    "title": "Eaglercraft 1.12.2",
-    "link": "projects/eg1.12.2/index.html",
-    "image": "projects/eg1.12.2/cover.svg"
   },
   {
     "title": "Eggy Car",
