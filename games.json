@@ -1165,11 +1165,6 @@
     "image": "Assets/errnoimg.png"
   },
   {
-    "title": "Pokemon",
-    "link": "projects/pokemon/index.html",
-    "image": "projects/pokemon/logo.jpg"
-  },
-  {
     "title": "Polybranch",
     "link": "projects/polybranch/index.html",
     "image": "projects/polybranch/img/pic1.png"
