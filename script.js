@@ -6,23 +6,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   searchResults.innerHTML = 'Games are loading...';
 
   try {
-    const data = await fetch('games.json').then(response => response.json());
+    const data = await fetch('games.json').then(res => res.json());
+
     const renderSearchResults = (searchTerm = '') => {
       searchResults.innerHTML = '';
-      const filteredResults = data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+      const filteredResults = data.filter(item =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+      const fragment = document.createDocumentFragment();
+
       filteredResults.forEach(result => {
-        const renderedTemplate = searchResultTemplate.replace(/{{(.*?)}}/g, (match, key) => result[key.trim()]);
-        searchResults.innerHTML += renderedTemplate;
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = searchResultTemplate.replace(/{{(.*?)}}/g, (match, key) => result[key.trim()]);
+        fragment.appendChild(wrapper.firstElementChild);
       });
+
+      searchResults.appendChild(fragment);
     };
 
+    // initial render (all games)
     renderSearchResults();
 
+    // debounce search input
+    let timeout;
     searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.trim();
-      renderSearchResults(searchTerm);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        renderSearchResults(searchInput.value.trim());
+      }, 200); // delay in ms (200 = smooth typing)
     });
-  } catch (error) {
-    console.error('Error fetching data:', error);
+  } catch (err) {
+    console.error('Error fetching data:', err);
+    searchResults.innerHTML = 'Error loading games.';
   }
 });
