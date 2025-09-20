@@ -524,3 +524,16 @@ p {
   bottom: 0px;
   bottom: 100%;
 }
+.rndrec {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.rndrec:hover {
+  transform: scale(1.05);
+}
